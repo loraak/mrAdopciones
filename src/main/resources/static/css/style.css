@@ -1,0 +1,217 @@
+:root {
+    --primary-color: #D81B60; 
+    --primary-hover: #AD1457;
+    --light-pink-bg: #F8F0F5; 
+    --text-dark: #4b5563;
+    --text-muted: #6c757d;
+    --border-light: #ced4da;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #F8F0F5;
+}
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 40px;
+    background-color: var(--light-pink-bg); 
+    border-left: 24px solid var(--primary-color);
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: center; 
+}
+
+.logo-text {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.logo-text-header {
+    font-size: 20px;
+    font-weight: 650;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.login-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.form-floating > .form-control {
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 1rem;
+    border-radius: 12px; 
+    border-color: var(--border-light);
+}
+
+.input-group .form-control {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: #FFFFFF !important;
+}
+
+.form-floating > label {
+    color: var(--text-muted);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(216, 27, 96, 0.15);
+    background-color: #FFFFFF !important; 
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    opacity: 0.8;
+    color: var(--primary-color); 
+    transform: scale(0.85) translateY(-0.75rem) translateX(0.15rem);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: var(--text-dark) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px; 
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px; 
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+.logo-img {
+    height: 3.5em;
+    width: auto; 
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.logo-img2 {
+    height: 3.5em;
+    width: auto; 
+    margin-right: -10px;
+    vertical-align: middle;
+}
+
+.image-section {
+    background-image: url('../img/mfresh.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.image-section2 {
+    background-image: url('../img/perrochistoso.gif');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.image-section3 {
+    background-image: url('../img/mrshock.gif');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.nalin {
+    font-size: 1.2rem !important;
+}
+
+.category-card {
+    height: 400px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2) !important;
+}
+
+.category-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.8) 100%);
+}
+
+.cta-gradient {
+    background: linear-gradient(135deg, #D81B60 0%, #8E24AA 100%);
+}
+
+.cta-gradient .btn-light {
+    color: #D81B60 !important;
+    transition: all 0.3s ease;
+}
+
+.cta-gradient .btn-light:hover {
+    transform: scale(1.05);
+    background-color: #f8f9fa;
+}

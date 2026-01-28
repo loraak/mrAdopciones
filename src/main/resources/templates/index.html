@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/layout :: head}"></head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <div th:replace="~{fragments/layout :: header}"></div>
+
+    <main class="flex-grow-1">
+        <section class="container my-5 py-5">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4 fw-bold mb-4">Dale una Segunda Oportunidad</h1>
+                    <p class="lead text-muted mb-4">Miles de mascotas esperan por un hogar lleno de amor. Encuentra a tu compañero perfecto y cambia una vida para siempre.</p>
+                    <div class="d-flex gap-3">
+                        <a th:href="@{/catalogo}" class="btn btn-primary px-4 py-2 rounded-pill">Ver Mascotas Disponibles</a>
+                        <a th:href="@{/catalogo}" class="btn btn-primary px-4 py-2 rounded-pill">¡Contáctanos!</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img th:src="@{/img/losquesaben.jpg}" class="img-fluid w-100 rounded-4 shadow-lg" alt="Perro feliz">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light py-5">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-icon mb-3"><i class="fas fa-paw fa-2x" style="color: #D81B60;"></i></div>
+                        <h3 class="fw-bold">2</h3>
+                        <p class="text-muted">Mascotas Adoptadas</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-icon mb-3"><i class="fas fa-home fa-2x" style="color: #D81B60;"></i></div>
+                        <h3 class="fw-bold">2</h3>
+                        <p class="text-muted">Familias Felices</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-icon mb-3"><i class="fas fa-users fa-2x" style="color: #D81B60;"></i></div>
+                        <h3 class="fw-bold">3</h3>
+                        <p class="text-muted">Refugios Aliados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5 py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Encuentra a Tu Compañero Perfecto</h2>
+        <p class="text-muted lead">Explora nuestro catálogo por tipo de mascota</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <a th:href="@{/perros}" class="category-card shadow-lg rounded-4 overflow-hidden d-block position-relative">
+                <img th:src="@{/img/quemiedo.jpg}" class="category-img" alt="Perros">
+                <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                    <h3 class="text-white fw-bold mb-1">Perros</h3>
+                    <p class="text-white-50 mb-0">Leales y cariñosos compañeros</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a th:href="@{/gatos}" class="category-card shadow-lg rounded-4 overflow-hidden d-block position-relative">
+                <img th:src="@{/img/floppa.jpg}" class="category-img" alt="Perros">
+                <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                    <h3 class="text-white fw-bold mb-1">Gatos</h3>
+                    <p class="text-white-50 mb-0">Independientes y encantadores</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a th:href="@{/otros}" class="category-card shadow-lg rounded-4 overflow-hidden d-block position-relative">
+                <img th:src="@{/img/rata.jpg}" class="category-img" alt="Perros">
+                <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                    <h3 class="text-white fw-bold mb-1">Otros Animales</h3>
+                    <p class="text-white-50 mb-0">Conejos, aves y más</p>
+                </div>
+            </a>
+        </div>
+    </div>
+        </section>
+
+    </main>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

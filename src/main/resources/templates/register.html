@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Adopciones - Crear Cuenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" th:href="@{/img/gatotriste.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container-fluid p-0">
+    <div class="row g-0">
+        <div class="col-md-6 login-section">
+            <div class="login-container">
+                
+                <div class="logo-container">
+                    <img th:src="@{/img/gatotriste.png}" class="logo-img" alt="Logo Mr. Adopciones">
+                    <span class="logo-text">Mr Adopciones</span>
+                </div>
+
+                <div class="login-subtitle">¡Únete a nuestra comunidad y salva vidas!</div>
+                <h1 class="login-title">Crear Cuenta</h1>
+
+                <form th:action="@{/register}" th:object="${user}" method="post" class="mt-4">
+                    
+                    <div class="form-floating mb-3">
+                        <input type="text" th:field="*{username}" class="form-control" id="username" 
+                                placeholder="Usuario" required
+                                th:classappend="${#fields.hasErrors('username')} ? 'is-invalid' : ''">
+                        <label for="username">Nombre de Usuario</label>
+                        <div class="invalid-feedback" th:errors="*{username}"></div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" th:field="*{email}" class="form-control" id="email" 
+                                placeholder="nombre@ejemplo.com" required
+                                th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''">
+                        <label for="email">Correo Electrónico</label>
+                        <div class="invalid-feedback" th:errors="*{email}"></div>
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <div class="form-floating">
+                                <input type="password" th:field="*{password}" class="form-control" id="password" 
+                                    placeholder="Contraseña" required
+                                    th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                            <label for="password">Contraseña</label>
+                        </div>
+                        <div class="invalid-feedback d-block" th:errors="*{password}"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                </form>
+
+                <div class="login-footer">
+                    ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 image-section3 d-none d-md-block">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

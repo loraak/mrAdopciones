@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Adopciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" type="image/png" th:href="@{/img/gatotriste.png}">
+</head>
+
+<body>
+
+    <div th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #D81B60;">
+            <div class="container">
+                <a class="navbar-brand fw-bold" th:href="@{/}">
+                    <img th:src="@{/img/gatotriste.png}" class="logo-img2" alt="Logo Mr. Adopciones">
+                    <span class="logo-text-header">Mr Adopciones</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMain">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link nalin" th:href="@{/catalog}">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link nalin" th:href="@{/about-us}">Sobre Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link nalin" th:href="@{/blog}">Blog</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item" sec:authorize="!isAuthenticated()">
+                            <a class="nav-link nalin" th:href="@{/register}">Registrar</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="!isAuthenticated()">
+                            <a class="btn btn-light btn-sm ms-lg-2 text-danger fw-bold nalin" th:href="@{/login}">Iniciar Sesión</a>
+                        </li>
+
+                        <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                            <a class="nav-link nalin dropdown-toggle d-flex align-items-center" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-lg me-2 mt-2"></i>
+                                <span sec:authentication="name">Usuario</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="userMenu">
+                                <li>
+                                    <form th:action="@{/logout}" method="post" class="m-0">
+                                        <button type="submit" class="dropdown-item text-danger fw-bold">
+                                            <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    <footer th:fragment="footer" class="bg-dark text-white pt-5 pb-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Mr. Adopciones</h5>
+                    <p class="small text-secondary">Conectando mascotas con familias amorosas desde 2026. Cada adopción salva una vida :)</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a th:href="@{/catalog}" class="text-secondary text-decoration-none">Catálogo</a></li>
+                        <li><a th:href="@{/blog}" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li><a th:href="@{/donar}" class="text-secondary text-decoration-none">Donaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-end">
+                    <h5>Contacto</h5>
+                    <p class="small text-secondary">mradopciones@gmail.com<br>+52 468 103 3370</p>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center small text-secondary">© 2026 Mr. Adopciones. Todos los derechos reservados a Mr. Fresh.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
