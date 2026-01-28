@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments/layout :: head}"></head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <div th:replace="~{fragments/layout :: header}"></div>
+
+    <main class="flex-grow-1">
+        <div class="container mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/catalog}">Catálogo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" th:text="${pet.name}">Nombre de Mascota</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="container my-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6">
+                    <div class="position-relative">
+                        <img th:src="${pet.imageUrl}" class="img-fluid rounded-4 shadow-lg" th:alt="${pet.name}" style="width: 100%; height: 500px; object-fit: cover;">
+                        <span class="badge bg-white text-success position-absolute bottom-0 start-0 m-4 px-3 py-2 rounded-pill shadow-sm fw-bold">
+                            <i class="fas fa-check-circle me-1"></i> Disponible para adopción
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="ps-md-4">
+                        <h1 class="display-3 fw-bold mb-2" th:text="${pet.name}" style="color: var(--text-dark);">Nombre</h1>
+                        <div class="d-flex align-items-center mb-4">
+                            <span class="badge-pink rounded-pill me-2" th:text="${pet.breed}">Raza</span>
+                            <span class="text-muted"><i class="fas fa-birthday-cake me-1"></i> <span th:text="${pet.age + ' años'}"></span></span>
+                        </div>
+                        
+                        <hr class="my-4 opacity-10">
+                        
+                        <h4 class="fw-bold mb-3">Conóceme</h4>
+                        <p class="lead text-secondary mb-4" th:text="${pet.description}">Descripción detallada sobre la personalidad y necesidades de la mascota...</p>
+
+
+                        <div class="d-grid">
+                            <form th:id="'formAdopcion-' + ${pet.id}" th:action="@{/pet/adopt/{id}(id=${pet.id})}" method="post" sec:authorize="isAuthenticated()">
+                                <button type="button" 
+                                    class="btn btn-primary btn-lg w-100 rounded-pill shadow-sm py-3 fw-bold" 
+                                    th:data-name="${pet.name}" 
+                                    th:data-id="${pet.id}"
+                                    onclick="confirmarAdopcion(this)">
+                                ¡Solicitar Adopción!
+                            </button>
+                            </form>
+
+                            <div sec:authorize="!isAuthenticated()" class="alert alert-pink-light border-0 rounded-4 p-4 text-center">
+                                <p class="mb-3 fw-bold" style="color: var(--primary-color);">¿Te has enamorado de <span th:text="${pet.name}"></span>?</p>
+                                <a th:href="@{/login}" class="btn btn-outline-pink rounded-pill px-4">Inicia sesión para adoptar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<script>
+function confirmarAdopcion(button) {
+    const petName = button.getAttribute('data-name');
+    const petId = button.getAttribute('data-id');
+
+    Swal.fire({
+        title: '¡Gracias por tu gran corazón!',
+        html: `Has iniciado el proceso para que <b>${petName}</b> sea parte de tu familia. <br> ¡Pronto nos pondremos en contacto contigo!`,
+        
+        imageUrl: '/img/jumping-gatito.gif',
+        imageWidth: 300,
+        imageHeight: 225,
+        imageAlt: 'Mascota feliz',
+        
+        confirmButtonText: '¡Entendido!',
+        confirmButtonColor: '#D81B60',
+        padding: '2em',
+        color: '#2d3436',
+        background: '#fff',
+        backdrop: `rgba(216, 27, 96, 0.2)` 
+        
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('formAdopcion-' + petId).submit();
+        }
+    });
+}
+</script>
