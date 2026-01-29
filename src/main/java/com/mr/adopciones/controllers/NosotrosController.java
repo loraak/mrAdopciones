@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class NosotrosController {
-    @GetMapping("/nosotros")
+    @GetMapping("/about-us")
     public String sobreNosotros(Model model) {
         model.addAttribute("titulo", "Sobre Nosotros");
-        return "nosotros"; 
+        return "about-us"; 
     }
 }
 
