@@ -22,5 +22,5 @@ public class Pet {
     private String imageUrl; 
     private String category; 
     private String tags; 
-    private boolean adopted = false; 
+    private boolean adopted = false;
 }

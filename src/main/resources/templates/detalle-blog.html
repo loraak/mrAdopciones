@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/layout :: head}"></head>
+<link rel="stylesheet" th:href="@{/css/blog-styles.css}">
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <div th:replace="~{fragments/layout :: header}"></div>
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                <li th:each="step, iterStat : ${breadcrumb}" class="breadcrumb-item"
+                    th:classappend="${iterStat.last} ? 'active'" th:aria-current="${iterStat.last} ? 'page'">
+
+                    <a th:if="${!iterStat.last}" th:href="@{/blog}" th:text="${step}">Catálogo</a>
+                    <span th:if="${iterStat.last}" th:text="${step}">Categoría</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="blog-header"><h1 class="blog-header-title" th:text="${blog.titulo}"></h1></div>
+    <div class="blog-featured-content">
+        <p th:text="${blog.descripcion}"></p>
+        <ul>
+            <li th:each="elemento : ${blog.lista}" th:text="${elemento}"></li>
+        </ul>
+        <p th:text="${blog.cierre}"></p>
+        <div class="blog-img-element">
+            <img class="blog-img-content" th:src="@{'/img/' + ${blog.contenido}}" alt="Imagen del blog">
+        </div>
+        <a th:href="@{/blog}">Volver</a>
+    </div>
+    
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

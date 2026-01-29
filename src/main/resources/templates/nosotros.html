@@ -49,6 +49,22 @@
             align-items: center;
             justify-content: center;
         }
+
+        .social-link {
+            display: inline-block;
+            margin-right: 15px;
+            color: #495057;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #007bff;
+        }
+
+        .contact-form .form-control {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 
@@ -137,6 +153,75 @@
                                 </div>
                             </div>
                         </section>
+
+                        <div class="section-divider"></div>
+
+                        <!-- NUEVA SECCIÓN: CONTÁCTANOS -->
+                        <section id="contacto" class="mb-4">
+                            <h5 class="fw-bold"><i class="fa-solid fa-envelope text-success"></i> Contáctanos</h5>
+
+                            <!-- Ayuda con contactos y redes sociales -->
+                            <div class="card border-0 shadow-sm mb-3">
+                                <div class="card-body">
+                                    <h6 class="fw-bold mb-3"><i class="fa-solid fa-phone me-2"></i>Ayuda y Redes
+                                        Sociales</h6>
+
+                                    <div class="mb-3">
+                                        <p class="small mb-2"><strong>Teléfono:</strong> +52 442 123 4567</p>
+                                        <p class="small mb-2"><strong>Email:</strong> contacto@mradopciones.com</p>
+                                        <p class="small mb-3"><strong>WhatsApp:</strong> +52 442 765 4321</p>
+                                    </div>
+
+                                    <div>
+                                        <p class="small fw-bold mb-2">Síguenos:</p>
+                                        <a href="#" class="social-link" title="Facebook">
+                                            <i class="fa-brands fa-facebook fa-2x"></i>
+                                        </a>
+                                        <a href="#" class="social-link" title="Instagram">
+                                            <i class="fa-brands fa-instagram fa-2x"></i>
+                                        </a>
+                                        <a href="#" class="social-link" title="Twitter">
+                                            <i class="fa-brands fa-twitter fa-2x"></i>
+                                        </a>
+                                        <a href="#" class="social-link" title="TikTok">
+                                            <i class="fa-brands fa-tiktok fa-2x"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="fw-bold mb-3"><i class="fa-solid fa-paper-plane me-2"></i>Buzón</h6>
+                                    
+                                    <form id="contactForm">
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Nombre completo</label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="Tu nombre" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Correo electrónico</label>
+                                            <input type="email" class="form-control form-control-sm" placeholder="tu@email.com" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Asunto</label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="Motivo de tu mensaje" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Mensaje</label>
+                                            <textarea class="form-control form-control-sm" rows="3" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-sm w-100">
+                                            <i class="fa-solid fa-paper-plane me-2"></i>Enviar Mensaje
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
                     </div>
 
                     <div class="login-footer mt-4">
@@ -152,6 +237,15 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script simple para el formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
+        });
+    </script>
+
 </body>
 
 </html>

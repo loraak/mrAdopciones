@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/layout :: head}"></head>
+<link rel="stylesheet" th:href="@{/css/blog-styles.css}">
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <div th:replace="~{fragments/layout :: header}"></div>
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                <li th:each="step, iterStat : ${breadcrumb}" class="breadcrumb-item"
+                    th:classappend="${iterStat.last} ? 'active'" th:aria-current="${iterStat.last} ? 'page'">
+
+                    <a th:if="${!iterStat.last}" th:href="@{/blog}" th:text="${step}">Catálogo</a>
+                    <span th:if="${iterStat.last}" th:text="${step}">Categoría</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <main class="flex-grow-1">
+        <div class="blog-header">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold blog-header-title" th:text="${title}">Catálogo de Mascotas</h2>
+                <p class="text-muted">Guias y consejos para cuidar mejor a tu mascota</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="blog-featured-container">
+        <div class="blog-featured-wrapper">
+            <img class="blog-featured-image" th:src="@{/img/fox-blog.png}"></img>
+            <div class="blog-featured-content">
+                <div class="blog-badge">
+                    <p class="blog-badge-text">Destacado</p>
+                </div>
+                <h2 class="blog-featured-title">Cómo preparar tu hogar para una nueva mascota</h2>
+                <p class="blog-featured-description">Consejos esenciales para adaptar tu espacio antes de la llegada de
+                    tu nuevo compañero.</p>
+                <div class="blog-meta-container">
+                    <div class="blog-meta-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M5.3335 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.6665 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M12.6667 2.66666H3.33333C2.59695 2.66666 2 3.26361 2 3.99999V13.3333C2 14.0697 2.59695 14.6667 3.33333 14.6667H12.6667C13.403 14.6667 14 14.0697 14 13.3333V3.99999C14 3.26361 13.403 2.66666 12.6667 2.66666Z"
+                                stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M2 6.66666H14" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p class="blog-meta-text">Enero 2026</p>
+                    <div class="blog-meta-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M12.6668 14V12.6667C12.6668 11.9594 12.3859 11.2811 11.8858 10.781C11.3857 10.281 10.7074 10 10.0002 10H6.00016C5.29292 10 4.61464 10.281 4.11454 10.781C3.61445 11.2811 3.3335 11.9594 3.3335 12.6667V14"
+                                stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M8.00016 7.33333C9.47292 7.33333 10.6668 6.13943 10.6668 4.66667C10.6668 3.19391 9.47292 2 8.00016 2C6.5274 2 5.3335 3.19391 5.3335 4.66667C5.3335 6.13943 6.5274 7.33333 8.00016 7.33333Z"
+                                stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p class="blog-meta-text">Dra. María López</p>
+                    <div class="blog-meta-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <g clip-path="url(#clip0_1_1574)">
+                                <path
+                                    d="M8.39083 1.72401C8.14084 1.47394 7.80176 1.33342 7.44816 1.33334H2.66683C2.31321 1.33334 1.97407 1.47382 1.72402 1.72387C1.47397 1.97392 1.3335 2.31305 1.3335 2.66668V7.44801C1.33357 7.8016 1.4741 8.14069 1.72416 8.39068L7.52683 14.1933C7.82984 14.4944 8.23966 14.6634 8.66683 14.6634C9.094 14.6634 9.50382 14.4944 9.80683 14.1933L14.1935 9.80668C14.4946 9.50367 14.6636 9.09385 14.6636 8.66668C14.6636 8.23951 14.4946 7.82969 14.1935 7.52668L8.39083 1.72401Z"
+                                    stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M4.99984 5.33332C5.18393 5.33332 5.33317 5.18408 5.33317 4.99999C5.33317 4.81589 5.18393 4.66666 4.99984 4.66666C4.81574 4.66666 4.6665 4.81589 4.6665 4.99999C4.6665 5.18408 4.81574 5.33332 4.99984 5.33332Z"
+                                    fill="#4A5565" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_1574">
+                                    <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p class="blog-meta-text">Preparación</p>
+                </div>
+                <div class="blog-button-container">
+                    <button class="blog-button">
+                        <a th:href="@{/blog/1}" class="blog-button-text">Leer Artículo Completo</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-recent-container">
+        <div class="blog-recent-wrapper">
+            <div>
+                <h2 class="blog-recent-title">Articulos recientes</h2>
+            </div>
+
+            <div class="blog-articles-grid">
+                <div class="blog-article-card art2">
+                    <img class="blog-article-image" th:src="@{/img/dog-blog.png}"></img>
+                    <div class="blog-article-content">
+                        <div class="blog-article-badge-wrapper">
+                            <p class="blog-badge-text">Destacado</p>
+                        </div>
+                        <h3 class="blog-article-title">Alimentación balanceada para perros</h3>
+                        <p class="blog-article-description">Guía completa sobre los nutrientes esenciales que tu perro
+                            necesita según su edad y tamaño.</p>
+                        <div class="blog-meta-container">
+                            <div class="blog-meta-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M5.3335 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.6665 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M12.6667 2.66666H3.33333C2.59695 2.66666 2 3.26361 2 3.99999V13.3333C2 14.0697 2.59695 14.6667 3.33333 14.6667H12.6667C13.403 14.6667 14 14.0697 14 13.3333V3.99999C14 3.26361 13.403 2.66666 12.6667 2.66666Z"
+                                        stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M2 6.66666H14" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="blog-meta-text">Enero 2026</p>
+                            <p></p><p></p>
+                            <button class="blog-button">
+                                <a th:href="@{/blog/2}" class="blog-button-text">Leer más →</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-article-card art2">
+                    <img class="blog-article-image" th:src="@{/img/colibri-blog.jpeg}"></img>
+                    <div class="blog-article-content">
+                        <div class="blog-article-badge-wrapper">
+                            <p class="blog-badge-text">Destacado</p>
+                        </div>
+                        <h3 class="blog-article-title">Primeros días con tu gato adoptado</h3>
+                        <p class="blog-article-description">Estrategias para ayudar a tu gato a sentirse cómodo y seguro
+                            en su nuevo hogar.</p>
+                        <div class="blog-meta-container">
+                            <div class="blog-meta-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M5.3335 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.6665 1.33334V4.00001" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M12.6667 2.66666H3.33333C2.59695 2.66666 2 3.26361 2 3.99999V13.3333C2 14.0697 2.59695 14.6667 3.33333 14.6667H12.6667C13.403 14.6667 14 14.0697 14 13.3333V3.99999C14 3.26361 13.403 2.66666 12.6667 2.66666Z"
+                                        stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M2 6.66666H14" stroke="#4A5565" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <p class="blog-meta-text">Diciembre 2025</p>
+                            <p></p><p></p>
+                            <button class="blog-button">
+                                <a th:href="@{/blog/3}" class="blog-button-text">Leer más →</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/layout :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
