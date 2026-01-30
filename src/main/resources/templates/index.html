@@ -82,6 +82,65 @@
     </div>
         </section>
 
+        <section class="container my-5 py-5 border-top sitemap-visual">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-6">Mapa del Sitio</h2>
+    </div>
+
+    <div class="sitemap-wrapper">
+        <div class="sitemap-root">
+            <a th:href="@{/}" class="node-main">Inicio</a>
+        </div>
+
+        <div class="sitemap-branches">
+            <div class="branch">
+                <div class="node-category">Catálogo de Mascotas</div>
+                <div class="sub-nodes">
+                    <a th:href="@{/catalog/perros}" class="node-item">Perros</a>
+                    <a th:href="@{/catalog/gatos}" class="node-item">Gatos</a>
+                    <a th:href="@{/catalog/otros}" class="node-item">Otras Mascotas</a>
+                </div>
+            </div>
+
+            <div class="branch">
+                <div class="node-category">Sobre Nosotros</div>
+                <div class="sub-nodes">
+                    <a th:href="@{/about-us}" class="node-item">Preguntas Frecuentes</a>
+                    <a th:href="@{/about-us}" class="node-item">Donaciones</a>
+                    <a th:href="@{/about-us}" class="node-item">Historias de Éxito</a>
+                </div>
+            </div>
+
+            <div class="branch">
+                <a th:href="@{/blog}" class="node-category text-decoration-none text-dark">Blog</a>
+            </div>
+        </div>
+
+        <div class="sitemap-additional mx-auto">
+            <h3 class="text-center mb-4">Elementos Adicionales</h3>
+
+            <div class="additional-row">
+                <a th:href="@{/about-us}" class="node-category">Contáctanos</a>
+            </div>
+
+            <div class="additional-row">
+                <a th:href="@{/about-us}" class="node-item">Ayuda</a>
+                <a th:href="@{/about-us}" class="node-item">Buzón</a>
+            </div>
+
+            <div class="additional-row">
+                <div class="node-category">Cuenta</div>
+            </div>
+
+            <div class="additional-row">
+                <a th:href="@{/login}" class="node-item">Inicio de Sesión</a>
+                <a th:href="@{/forgot-password}" class="node-item">Recuperación de contraseña</a>
+                <a th:href="@{/register}" class="node-item">Registro</a>
+            </div>
+        </div>
+    </div>
+</section>
+
     </main>
 
     <div th:replace="~{fragments/layout :: footer}"></div>
